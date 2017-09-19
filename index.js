@@ -14,7 +14,7 @@ function virtualDirective (component, options) {
       restrict: 'E',
       scope: false,
       link: function (scope, element, attrs) {
-        state = component()
+        state = component.call(scope)
         loop = Loop(state(), render, vdom)
 
         function render (state) {
